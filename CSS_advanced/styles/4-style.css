@@ -11,29 +11,29 @@
 
 html {
     scroll-behavior: smooth;
-};
+}
 
 body {
     color: var(--text-color);
     font-family: var(--font-family-base);
-};
+}
 
 a {
     color: var(--text-color);
-};
+}
 
 .visually-hidden {
     display: none;
-};
+}
 
 .card-category {
     color: var(--color-primary);
-};
+}
 
 .section-tagline {
     color: var(--color-primary);
-};
+}
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-title);
-};
+}
