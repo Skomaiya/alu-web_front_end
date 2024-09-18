@@ -1,7 +1,9 @@
-$primary-color: #3D3D3D
+$primary-text-color: #3D3D3D;
 
-body
-    color: $primary-color
+body {
+  color: $primary-text-color;
+}
 
-p
-    color: $primary-color
+p {
+  color: $primary-text-color;
+}
