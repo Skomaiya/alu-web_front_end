@@ -614,5 +614,5 @@
     }
 
     .tag-list li:last-child::after {
-        cont
+      content: "";        
     }
