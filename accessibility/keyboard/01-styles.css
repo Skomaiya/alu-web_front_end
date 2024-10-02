@@ -842,7 +842,7 @@ ul.row {
     transition: var(--transition-duration) var(--transition-cubic-bezier);
 }
 
-.card-work .card-title a {
+.card-work .card-title {
     opacity: 0;
 }
 
