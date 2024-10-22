@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Course Catalog</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Course Catalog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasFilter" aria-controls="offcanvasFilter">
+                            Filters
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Offcanvas for Filtering -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasFilter" aria-labelledby="offcanvasFilterLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasFilterLabel">Filters</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <h6>Category</h6>
+            <select id="filter-category" class="form-select mb-3">
+                <option value="all">All Categories</option>
+                <option value="web">Web Development</option>
+                <option value="data">Data Science</option>
+                <option value="design">Design</option>
+            </select>
+
+            <h6>Level</h6>
+            <select id="filter-level" class="form-select">
+                <option value="all">All Levels</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="container mt-4">
+        <div class="input-group mb-4">
+            <input id="search-bar" type="text" class="form-control" placeholder="Search courses by name or keyword...">
+        </div>
+
+        <!-- Course Catalog -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Course 1 -->
+            <div class="col">
+                <div class="course card shadow-sm" data-category="web" data-level="beginner">
+                    <img src="./images/web-development.avif" class="card-img-top img-fluid" alt="Course Image"
+                        style="max-height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Intro to Web Development</h5>
+                        <p class="card-text">Instructor: Jane Doe</p>
+                        <p class="card-text">Level: Beginner</p>
+                        <a href="#" class="btn btn-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="course card shadow-sm" data-category="data" data-level="intermediate">
+                    <img src="./images/data-science1.avif" class="card-img-top img-fluid" alt="Course Image"
+                        style="max-height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Data Science 101</h5>
+                        <p class="card-text">Instructor: John Doe</p>
+                        <p class="card-text">Level: Intermediate</p>
+                        <a href="#" class="btn btn-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="course card shadow-sm" data-category="web" data-level="beginner">
+                    <img src="./images/html-and-css.avif" class="card-img-top img-fluid" alt="Course Image"
+                        style="max-height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">HTML & CSS Basics</h5>
+                        <p class="card-text">Instructor: Alex Johnson</p>
+                        <p class="card-text">Level: Beginner</p>
+                        <a href="#" class="btn btn-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="course card shadow-sm" data-category="data" data-level="intermediate">
+                    <img src="./images/python-data-science.avif" class="card-img-top img-fluid" alt="Course Image"
+                        style="max-height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Python for Data Science</h5>
+                        <p class="card-text">Instructor: Sarah Lee</p>
+                        <p class="card-text">Level: Intermediate</p>
+                        <a href="#" class="btn btn-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="course card shadow-sm" data-category="design" data-level="beginner">
+                    <img src="./images/graphic-design.avif" class="card-img-top img-fluid" alt="Course Image"
+                        style="max-height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Introduction to Graphic Design</h5>
+                        <p class="card-text">Instructor: Emily Davis</p>
+                        <p class="card-text">Level: Beginner</p>
+                        <a href="#" class="btn btn-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="course card shadow-sm" data-category="web" data-level="intermediate">
+                    <img src="./images/javascript.avif" class="card-img-top img-fluid" alt="Course Image"
+                        style="max-height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">JavaScript Fundamentals</h5>
+                        <p class="card-text">Instructor: Michael Brown</p>
+                        <p class="card-text">Level: Intermediate</p>
+                        <a href="#" class="btn btn-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="course card shadow-sm" data-category="data" data-level="advanced">
+                    <img src="./images/machine-learning.avif" class="card-img-top img-fluid" alt="Course Image"
+                        style="max-height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Machine Learning with Python</h5>
+                        <p class="card-text">Instructor: Dr. Samuel Clark</p>
+                        <p class="card-text">Level: Advanced</p>
+                        <a href="#" class="btn btn-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="course card shadow-sm" data-category="design" data-level="intermediate">
+                    <img src="./images/user-experience.avif" class="card-img-top img-fluid" alt="Course Image"
+                        style="max-height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">User Experience Design</h5>
+                        <p class="card-text">Instructor: Lisa Martin</p>
+                        <p class="card-text">Level: Intermediate</p>
+                        <a href="#" class="btn btn-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="course card shadow-sm" data-category="web" data-level="advanced">
+                    <img src="./images/full-stack-development.avif" class="card-img-top img-fluid" alt="Course Image"
+                        style="max-height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Full-Stack Development</h5>
+                        <p class="card-text">Instructor: Andrew Wilson</p>
+                        <p class="card-text">Level: Advanced</p>
+                        <a href="#" class="btn btn-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="course card shadow-sm" data-category="data" data-level="beginner">
+                    <img src="./images/data-analytics.avif" class="card-img-top img-fluid" alt="Course Image"
+                        style="max-height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Introduction to Data Analytics</h5>
+                        <p class="card-text">Instructor: Dr. Olivia White</p>
+                        <p class="card-text">Level: Beginner</p>
+                        <a href="#" class="btn btn-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="course card shadow-sm" data-category="design" data-level="advanced">
+                    <img src="./images/photoshop.avif" class="card-img-top img-fluid" alt="Course Image"
+                        style="max-height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Advanced Photoshop Techniques</h5>
+                        <p class="card-text">Instructor: Chloe Williams</p>
+                        <p class="card-text">Level: Advanced</p>
+                        <a href="#" class="btn btn-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="course card shadow-sm" data-category="web" data-level="beginner">
+                    <img src="./images/responsive-design.avif" class="card-img-top img-fluid" alt="Course Image"
+                        style="max-height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Responsive Web Design</h5>
+                        <p class="card-text">Instructor: Jacob Green</p>
+                        <p class="card-text">Level: Beginner</p>
+                        <a href="#" class="btn btn-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Filter by category and level
+        document.getElementById('filter-category').addEventListener('change', function () {
+            filterCourses();
+        });
+
+        document.getElementById('filter-level').addEventListener('change', function () {
+            filterCourses();
+        });
+
+        function filterCourses() {
+            const selectedCategory = document.getElementById('filter-category').value;
+            const selectedLevel = document.getElementById('filter-level').value;
+
+            document.querySelectorAll('.course').forEach(function (course) {
+                const courseCategory = course.getAttribute('data-category');
+                const courseLevel = course.getAttribute('data-level');
+
+                const categoryMatch = (selectedCategory === 'all' || selectedCategory === courseCategory);
+                const levelMatch = (selectedLevel === 'all' || selectedLevel === courseLevel);
+
+                if (categoryMatch && levelMatch) {
+                    course.style.display = 'block';
+                } else {
+                    course.style.display = 'none';
+                }
+            });
+        }
+
+        // Search bar functionality
+        document.getElementById('search-bar').addEventListener('input', function () {
+            const searchText = this.value.toLowerCase();
+            document.querySelectorAll('.course').forEach(function (course) {
+                const courseTitle = course.querySelector('.card-title').innerText.toLowerCase();
+                if (courseTitle.includes(searchText)) {
+                    course.style.display = 'block';
+                } else {
+                    course.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
