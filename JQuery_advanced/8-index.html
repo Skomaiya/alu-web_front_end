@@ -2,23 +2,42 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8" />
-    <title>Task 7</title>
+    <title>Task 8</title>
+
+    <!-- Import jQuery minified version with AJAX capabilities -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <style>
+        #pagination {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+        }
+        #pagination li {
+            cursor: pointer;
+            margin-left: 10px;
+            font-weight: normal;
+        }
+        #pagination .active {
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
     <script type="application/javascript">
         function createSearchForm() {
             $('body').append(
-                $('<div>').append(
+                $('<form>').append(
                     $('<input>', { type: 'text', placeholder: 'Search Wikipedia' }),
                     $('<input>', { type: 'submit', value: 'Search' }).on('click', function(event) {
                         event.preventDefault();
                         const searchValue = $('input[type="text"]').val();
-                        queryWikipedia(searchValue);
+                        queryWikipedia(searchValue, 0); 
                     }),
                     $('<ul>')
-                )
+                ),
+                $('<ul>', { id: 'pagination' }) 
             );
         }
 
@@ -31,16 +50,17 @@
                 $('<p>').html(snippet)
             );
 
-            $('ul').append(listItem);
+            $('ul:first').append(listItem);
         }
 
-        function queryWikipedia(search) {
+        function queryWikipedia(search, offset = 0) {
             const data = {
                 action: "query",
                 format: "json",
                 list: "search",
                 srsearch: search,
-                srlimit: 5,
+                srlimit: 10, 
+                sroffset: offset,
                 origin: "*"
             };
 
@@ -49,15 +69,44 @@
                 data: data,
                 dataType: "json",
                 success: function(response) {
-                    $('ul').empty();
+                    $('ul:first').empty(); // Clear previous results
                     response.query.search.forEach(result => {
                         addNewArticle(result.pageid, result.title, result.snippet);
                     });
+                    buildPagination(response.query.searchinfo.totalhits, 10, offset);
                 },
                 error: function() {
                     console.log("Error retrieving data from Wikipedia.");
                 }
             });
+        }
+
+        // Function to build the pagination list
+        function buildPagination(numberOfItems, itemsPerPage, currentOffset) {
+            const totalPages = Math.ceil(numberOfItems / itemsPerPage);
+            const currentPage = currentOffset / itemsPerPage + 1;
+
+            $('#pagination').empty(); 
+
+            for (let i = 1; i <= totalPages; i++) {
+                const pageItem = $('<li>').text(i);
+
+                pageItem.css({
+                    cursor: 'pointer',
+                    marginLeft: '10px',
+                    fontWeight: i === currentPage ? 'bold' : 'normal'
+                });
+
+                if (i === currentPage) {
+                    pageItem.addClass('active');
+                }
+
+                pageItem.on('click', function() {
+                    queryWikipedia($('input[type="text"]').val(), (i - 1) * itemsPerPage);
+                });
+
+                $('#pagination').append(pageItem);
+            }
         }
 
         $(document).ready(function() {
